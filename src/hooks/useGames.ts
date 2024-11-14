@@ -3,6 +3,7 @@ import { CanceledError } from "axios";
 import { useEffect, useState } from "react";
 
 export interface Game {
+  background_image: string | undefined;
   id: number;
   name: string;
 }

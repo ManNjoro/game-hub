@@ -7,10 +7,10 @@ interface Props {
 
 const GameCard = ({game}: Props) => {
     return (
-        <Card.Root>
+        <Card.Root borderRadius={10} overflow={'hidden'}>
             <Image src={game.background_image} />
             <Card.Body>
-                <Card.Header>{game.name}</Card.Header>
+                <Card.Header fontSize='2xl'>{game.name}</Card.Header>
             </Card.Body>
         </Card.Root>
     )
