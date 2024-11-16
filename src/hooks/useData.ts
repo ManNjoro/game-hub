@@ -26,7 +26,7 @@ const useData = <T>(endpoint:string) => {
         .catch((err) => {
           if (err instanceof CanceledError) return;
           setError(err.message);
-          // setLoading(false);
+          setLoading(false);
         });
       return () => controller.abort();
     }, []);
