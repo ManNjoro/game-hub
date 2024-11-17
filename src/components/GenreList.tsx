@@ -4,10 +4,11 @@ import { HStack, Image, List, Spinner } from "@chakra-ui/react";
 import { Button } from "./ui/button";
 
 interface Props {
-    onSelectGenre: (genre: Genre) => void
+    onSelectGenre: (genre: Genre) => void;
+    selectedGenre: Genre|null;
 }
 
-const GenreList = ({onSelectGenre}: Props) => {
+const GenreList = ({selectedGenre,onSelectGenre}: Props) => {
   const { data: genres, isLoading, error } = useGenres();
 
   if (isLoading) return <Spinner />
@@ -19,7 +20,7 @@ const GenreList = ({onSelectGenre}: Props) => {
         <List.Item key={genre.id}>
           <HStack>
             <Image boxSize='32px' borderRadius={8} src={getCroppedImageUrl(genre.image_background)} />
-            <Button onClick={()=>onSelectGenre(genre)} variant='plain' fontSize='lg'>{genre.name}</Button>
+            <Button fontWeight={genre.id === selectedGenre?.id ? 'bold' :'normal'} onClick={()=>onSelectGenre(genre)} variant='plain' fontSize='lg'>{genre.name}</Button>
           </HStack>
         </List.Item>
       ))}
