@@ -8,14 +8,14 @@ interface Props {
 }
 
 const SearchInput = ({onSearch}:Props) => {
-  const ref = useRef<HTMLInputElement>(null)
+const ref = useRef<HTMLInputElement>(null)
   return (
     <form onSubmit={(e) => {
       e.preventDefault();
       if (ref.current) onSearch(ref.current.value);
       
     }}>
-      <InputGroup flex="1" startElement={<BsSearch />}>
+      <InputGroup flex="1" width='100%' startElement={<BsSearch />}>
         <Input ref={ref} borderRadius={20} placeholder="Search games..." variant="subtle" />
       </InputGroup>
     </form>
