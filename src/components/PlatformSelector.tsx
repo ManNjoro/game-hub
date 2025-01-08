@@ -19,7 +19,7 @@ const PlatformSelector = ({onSelectPlatform, selectedPlatform}: Props) => {
             <Button><HStack><Text>{selectedPlatform?.name || 'Platforms'}</Text><BsChevronDown /></HStack></Button>
         </MenuTrigger>
         <MenuContent>
-          {data.map(platform => <MenuItem onClick={()=> onSelectPlatform(platform)} key={platform.id} value={platform.slug}>{platform.name}</MenuItem>)}
+          {data?.results.map(platform => <MenuItem onClick={()=> onSelectPlatform(platform)} key={platform.id} value={platform.slug}>{platform.name}</MenuItem>)}
         </MenuContent>
     </MenuRoot>
   )
